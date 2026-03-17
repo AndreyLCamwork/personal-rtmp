@@ -1,15 +1,14 @@
 version: '3.8'
 
 services:
-  rtmp-server:
-    image: node:18-alpine
-    container_name: personal-rtmp
-    working_dir: /app
-    volumes:
-      - .:/app
-      - ./media:/app/media
+  mediamtx:
+    image: bluenviron/mediamtx:latest
+    container_name: mediamtx-rtmp
     ports:
-      - "1935:1935"
-      - "8000:8000"
-    command: sh -c "npm install && npm start"
+      - "1935:1935"   # RTMP
+      - "8554:8554"   # RTSP
+      - "8888:8888"   # HLS
+      - "8889:8889"   # WebRTC
+    volumes:
+      - ./mediamtx.yml:/mediamtx.yml
     restart: unless-stopped

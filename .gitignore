@@ -2,3 +2,4 @@ node_modules/
 media/
 *.log
 .env
+mediamtx.log
