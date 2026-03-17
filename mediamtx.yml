@@ -1,0 +1,52 @@
+###############################################
+# General parameters
+
+# Sets the verbosity of the program
+logLevel: info
+logDestinations: [stdout]
+logFile: mediamtx.log
+
+# Timeout of read operations
+readTimeout: 10s
+# Timeout of write operations
+writeTimeout: 10s
+# Number of read buffers
+readBufferCount: 512
+
+###############################################
+# RTMP parameters
+
+rtmp: yes
+rtmpAddress: :1935
+
+###############################################
+# HLS parameters
+
+hls: yes
+hlsAddress: :8888
+hlsEncryption: no
+hlsSegmentCount: 7
+hlsSegmentDuration: 1s
+hlsPartDuration: 200ms
+hlsSegmentMaxSize: 50M
+
+###############################################
+# WebRTC parameters
+
+webrtc: yes
+webrtcAddress: :8889
+
+###############################################
+# RTSP parameters
+
+rtsp: yes
+rtspAddress: :8554
+
+###############################################
+# Path parameters
+
+paths:
+  all:
+    source: publisher
+    sourceOnDemand: no
+    record: no
