@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  rtmp-server:
+    image: node:18-alpine
+    container_name: personal-rtmp
+    working_dir: /app
+    volumes:
+      - .:/app
+      - ./media:/app/media
+    ports:
+      - "1935:1935"
+      - "8000:8000"
+    command: sh -c "npm install && npm start"
+    restart: unless-stopped
